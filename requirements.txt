@@ -1,0 +1,4 @@
+graphene_django
+django_storages
+boto3
+pillow

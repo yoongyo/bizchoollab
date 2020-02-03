@@ -1,0 +1,8 @@
+*.pyc
+*~
+__pycache__
+myvenv
+prod.sqlite3
+/static
+.DS_Store
+secret.json
