@@ -1,7 +1,7 @@
 from .common import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['eventmoa.pythonanywhere.com']
+ALLOWED_HOSTS = ['bizchoollab.pythonanywhere.com']
 
 DATABASES = {
     'default': {
