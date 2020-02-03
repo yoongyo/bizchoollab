@@ -3,7 +3,7 @@ from .models import NewsCategory, News
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['title']
 
 
 class NewsCategoryAdmin(admin.ModelAdmin):

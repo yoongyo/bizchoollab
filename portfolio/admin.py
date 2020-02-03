@@ -3,7 +3,7 @@ from .models import PortfolioCategory, Portfolio
 
 
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['title']
 
 
 class PortfolioCategoryAdmin(admin.ModelAdmin):

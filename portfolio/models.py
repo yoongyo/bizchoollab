@@ -14,3 +14,6 @@ class Portfolio(models.Model):
     thumbnail = models.ImageField()
     content = models.TextField()
     created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

@@ -3,7 +3,7 @@ from .models import Technology, TechCategory
 
 
 class TechnologyAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['title']
 
 
 class TechCategoryAdmin(admin.ModelAdmin):

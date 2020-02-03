@@ -3,7 +3,7 @@ from .models import StartupCategory, Startup
 
 
 class StartupAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['title']
 
 
 class StartupCategoryAdmin(admin.ModelAdmin):
