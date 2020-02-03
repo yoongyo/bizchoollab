@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .models import StartupCategory, Startup
 
-# Register your models here.
+
+class StartupAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+class StartupCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+admin.site.register(Startup, StartupAdmin)
+admin.site.register(StartupCategory, StartupCategoryAdmin)

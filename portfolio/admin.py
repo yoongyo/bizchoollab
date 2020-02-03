@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .models import PortfolioCategory, Portfolio
 
-# Register your models here.
+
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+class PortfolioCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+admin.site.register(Portfolio, PortfolioAdmin)
+admin.site.register(PortfolioCategory, PortfolioCategoryAdmin)

@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .models import NewsCategory, News
 
-# Register your models here.
+
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+class NewsCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+admin.site.register(News, NewsAdmin)
+admin.site.register(NewsCategory, NewsCategoryAdmin)
