@@ -93,3 +93,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# wysiwyg 에디터
+CKEDITOR_UPLOAD_PATH = "uploads/"
+AWS_QUERYSTRING_AUTH = False
