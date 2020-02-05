@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'portfolio',
     'startup',
     'tech',
+    'tag'
 ]
 
 
