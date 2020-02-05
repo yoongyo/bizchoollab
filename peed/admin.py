@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Peed, Category, Tag
+from .models import Peed, Category, Tag, ChildCategory
 
 
 class PeedAdmin(admin.ModelAdmin):
@@ -14,6 +14,11 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+class ChildCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
 admin.site.register(Peed, PeedAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(ChildCategory, ChildCategoryAdmin)
