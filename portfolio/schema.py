@@ -18,7 +18,7 @@ class Query(graphene.AbstractType):
 
     portfolio = graphene.Field(PortfolioType, id=graphene.Int())
 
-    all_all_portfolioCategory = graphene.List(PortfolioCategoryType)
+    all_portfolioCategory = graphene.List(PortfolioCategoryType)
 
     def resolve_all_portfolio(self, context, **kwargs):
         return Portfolio.objects.all()

@@ -18,7 +18,7 @@ class Query(graphene.AbstractType):
 
     startup = graphene.Field(StartupType, id=graphene.Int())
 
-    all_all_startupCategory = graphene.List(StartupCategoryType)
+    all_startupCategory = graphene.List(StartupCategoryType)
 
     def resolve_all_startup(self, context, **kwargs):
         return Startup.objects.all()
