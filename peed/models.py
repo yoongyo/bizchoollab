@@ -31,7 +31,7 @@ class Peed(models.Model):
     thumbnail = models.ImageField()
     content = RichTextField()
     created_at = models.DateField(auto_now_add=True)
-    tag = models.ManyToManyField(Tag, related_name="tag", blank=True, null=True)
+    tag = models.ManyToManyField(Tag, related_name="tag", blank=True)
 
     def __str__(self):
         return self.title
