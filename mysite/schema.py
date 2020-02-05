@@ -1,11 +1,8 @@
-from news.schema import Query as FestivalQuery
-from portfolio.schema import Query as PortfolioQuery
-from startup.schema import Query as startupQuery
-from tech.schema import Query as techQuery
+from peed.schema import Query as PeedQuery
 import graphene
 
 
-class Query(FestivalQuery, PortfolioQuery, startupQuery, techQuery, graphene.ObjectType):
+class Query(PeedQuery, graphene.ObjectType):
     pass
 
 

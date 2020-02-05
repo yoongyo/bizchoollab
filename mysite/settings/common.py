@@ -25,13 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'peed',
     'ckeditor',
-    'news',
-    'portfolio',
-    'startup',
-    'tech',
-    'tag'
+    'peed'
 ]
 
 
