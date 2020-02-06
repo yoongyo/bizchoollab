@@ -1,6 +1,6 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-from .models import Peed, Category, Tag
+from .models import Peed, Category, Tag, ChildCategory
 
 
 class PeedType(DjangoObjectType):
@@ -18,12 +18,19 @@ class TagType(DjangoObjectType):
         model = Tag
 
 
+class ChildCategoryType(DjangoObjectType):
+    class Meta:
+        model = ChildCategory
+
+
 class Query(graphene.AbstractType):
     all_peed = graphene.List(PeedType)
 
     all_category = graphene.List(CategoryType)
 
     all_tag = graphene.List(TagType)
+
+    all_childCategory = graphene.List(ChildCategoryType)
 
     peed = graphene.Field(PeedType, id=graphene.Int())
 
@@ -43,3 +50,6 @@ class Query(graphene.AbstractType):
 
     def resolve_all_tag(self, context, **kwargs):
         return Tag.objects.all()
+
+    def resolve_all_childCategory(self, context, **kwargs):
+        return ChildCategory.objects.all()
