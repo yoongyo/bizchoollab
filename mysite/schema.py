@@ -14,4 +14,4 @@ class Mutation(PeedMutation, graphene.ObjectType,):
     refresh_token = graphql_jwt.Refresh.Field()
 
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
