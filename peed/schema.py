@@ -35,11 +35,11 @@ class PeedMutation(graphene.Mutation):
         for i in tags:
             if Tag.objects.filter(name=i).exists():
                 tag = Tag.objects.get(name=i)
-                peed.add(tag)
+                peed.tag.add(tag)
             else:
                 tag = Tag.objects.create(name=i)
                 tag.save()
-                peed.add(tag)
+                peed.tag.add(tag)
 
         return PeedMutation(peed=peed)
 
