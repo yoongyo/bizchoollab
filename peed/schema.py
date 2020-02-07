@@ -92,4 +92,4 @@ class Query(graphene.AbstractType):
 
 
 class Mutation(graphene.ObjectType):
-    update_question = PeedMutation.Field()
+    peed = PeedMutation.Field()
