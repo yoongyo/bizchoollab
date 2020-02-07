@@ -28,7 +28,7 @@ class Peed(models.Model):
     title = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     childCategory = models.ForeignKey(ChildCategory, on_delete=models.CASCADE)
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(blank=True, null=True)
     content = RichTextField()
     created_at = models.DateField(auto_now_add=True)
     tag = models.ManyToManyField(Tag, related_name="tag", blank=True)

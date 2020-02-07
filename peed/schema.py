@@ -13,7 +13,7 @@ class PeedMutation(graphene.Mutation):
     class Arguments:
         title = graphene.String(required=True)
         content = graphene.String(required=True)
-        thumbnail = Upload(required=True)
+        # thumbnail = Upload(required=True)
         category = graphene.Int(required=True)
         childCategory = graphene.Int(required=True)
         tags = graphene.List(graphene.NonNull(graphene.String))
@@ -25,7 +25,7 @@ class PeedMutation(graphene.Mutation):
         peed = Peed.objects.create(
             title=title,
             content=content,
-            thumbnail=thumbnail,
+            # thumbnail=thumbnail,
             category=Category.objects.get(id=category),
             childCategory=ChildCategory.objects.get(id=childCategory)
         )
@@ -92,4 +92,4 @@ class Query(graphene.AbstractType):
 
 
 class Mutation(graphene.ObjectType):
-    peed = PeedMutation.Field()
+    create_peed = PeedMutation.Field()
