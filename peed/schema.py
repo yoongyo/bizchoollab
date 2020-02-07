@@ -20,7 +20,7 @@ class PeedMutation(graphene.Mutation):
 
     peed = graphene.Field(PeedType)
 
-    def mutate(self, info, title, content, thumbnail, category, childCategory, tags):
+    def mutate(self, info, title, content, category, childCategory, tags):
 
         peed = Peed.objects.create(
             title=title,
