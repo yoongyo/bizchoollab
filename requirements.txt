@@ -3,3 +3,4 @@ django_storages
 boto3
 pillow
 django-ckeditor
+graphene-file-upload

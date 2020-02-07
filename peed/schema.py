@@ -29,7 +29,7 @@ class PeedMutation(graphene.Mutation):
             category=Category.objects.get(id=category),
             childCategory=ChildCategory.objects.get(id=childCategory)
         )
-        
+
         peed.save()
 
         for i in tags:
