@@ -4,3 +4,4 @@ boto3
 pillow
 django-ckeditor
 graphene-file-upload
+django-graphql-jwt
