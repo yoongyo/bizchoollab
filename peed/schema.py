@@ -13,19 +13,19 @@ class PeedMutation(graphene.Mutation):
     class Arguments:
         title = graphene.String(required=True)
         content = graphene.String(required=True)
-        # thumbnail = Upload(required=True)
+        thumbnail = Upload(required=True)
         category = graphene.Int(required=True)
         childCategory = graphene.Int(required=True)
         tags = graphene.List(graphene.NonNull(graphene.String))
 
     peed = graphene.Field(PeedType)
 
-    def mutate(self, info, title, content, category, childCategory, tags):
+    def mutate(self, info, title, content, category, thumbnail, childCategory, tags):
 
         peed = Peed.objects.create(
             title=title,
             content=content,
-            # thumbnail=thumbnail,
+            thumbnail=thumbnail,
             category=Category.objects.get(id=category),
             childCategory=ChildCategory.objects.get(id=childCategory)
         )
