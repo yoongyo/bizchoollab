@@ -1,11 +1,47 @@
 import graphene
 from graphene_django.types import DjangoObjectType
 from .models import Peed, Category, Tag, ChildCategory
+from graphene_file_upload.scalars import Upload
 
 
 class PeedType(DjangoObjectType):
     class Meta:
         model = Peed
+
+
+class PeedMutation(graphene.Mutation):
+    class Arguments:
+        title = graphene.String(required=True)
+        content = graphene.String(required=True)
+        thumbnail = Upload(required=True)
+        category = graphene.Int(required=True)
+        childCategory = graphene.Int(required=True)
+        tags = graphene.List(graphene.NonNull(graphene.String))
+
+    peed = graphene.Field(PeedType)
+
+    def mutate(self, info, title, content, thumbnail, category, childCategory, tags):
+
+        peed = Peed.objects.create(
+            title=title,
+            content=content,
+            thumbnail=thumbnail,
+            category=Category.objects.get(id=category),
+            childCategory=ChildCategory.objects.get(id=childCategory)
+        )
+        
+        peed.save()
+
+        for i in tags:
+            if Tag.objects.filter(name=i).exists():
+                tag = Tag.objects.get(name=i)
+                peed.add(tag)
+            else:
+                tag = Tag.objects.create(name=i)
+                tag.save()
+                peed.add(tag)
+
+        return PeedMutation(peed=peed)
 
 
 class CategoryType(DjangoObjectType):
@@ -53,3 +89,7 @@ class Query(graphene.AbstractType):
 
     def resolve_all_childCategory(self, context, **kwargs):
         return ChildCategory.objects.all()
+
+
+class Mutation(graphene.ObjectType):
+    update_question = PeedMutation.Field()
