@@ -24,10 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'graphene_django',
     'ckeditor',
     'peed',
-    'corsheaders',
 ]
 
 
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-]
+    'django.middleware.common.CommonMiddleware',]
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -103,6 +103,6 @@ CORS_ORIGIN_WHITELIST = [
     'https://localhost:3000',
     'http://127.0.0.1:3000',
     'https://127.0.0.1:3000',
-    ]
+]
 
 CORS_ALLOW_CREDENTIALS = True
