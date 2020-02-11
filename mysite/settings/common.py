@@ -102,7 +102,6 @@ AWS_QUERYSTRING_AUTH = False
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
    'http://localhost:3000',    #React 도메인
-   'http://localhost:8000',    #Django 도메인
 )
 
 
