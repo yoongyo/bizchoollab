@@ -102,8 +102,8 @@ AWS_QUERYSTRING_AUTH = False
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'http://www.bizchoollab.com',
-    'http://bizchoollab.com',
+    'https://www.bizchoollab.com',
+    'https://bizchoollab.com',
 )
 
 
