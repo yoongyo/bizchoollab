@@ -5,3 +5,4 @@ pillow
 django-ckeditor
 graphene-file-upload
 django-graphql-jwt
+django-cors-headers

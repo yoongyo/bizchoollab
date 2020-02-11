@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'ckeditor',
-    'peed'
+    'peed',
+    'corsheaders',
 ]
 
 
@@ -39,7 +40,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -95,3 +95,14 @@ USE_TZ = True
 # wysiwyg 에디터
 CKEDITOR_UPLOAD_PATH = "uploads/"
 AWS_QUERYSTRING_AUTH = False
+
+
+# cors 문제 해결
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://127.0.0.1:3000',
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
