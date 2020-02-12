@@ -1,15 +1,15 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-from .models import Peed, Category, Tag, ChildCategory
+from .models import Feed, Category, Tag, ChildCategory
 from graphene_file_upload.scalars import Upload
 
 
-class PeedType(DjangoObjectType):
+class FeedType(DjangoObjectType):
     class Meta:
-        model = Peed
+        model = Feed
 
 
-class PeedMutation(graphene.Mutation):
+class FeedMutation(graphene.Mutation):
     class Arguments:
         title = graphene.String(required=True)
         content = graphene.String(required=True)
@@ -18,11 +18,11 @@ class PeedMutation(graphene.Mutation):
         childCategory = graphene.Int(required=True)
         tags = graphene.List(graphene.NonNull(graphene.String))
 
-    peed = graphene.Field(PeedType)
+    feed = graphene.Field(FeedType)
 
     def mutate(self, info, title, content, category, thumbnail, childCategory, tags):
 
-        peed = Peed.objects.create(
+        feed = Feed.objects.create(
             title=title,
             content=content,
             thumbnail=thumbnail,
@@ -30,18 +30,18 @@ class PeedMutation(graphene.Mutation):
             childCategory=ChildCategory.objects.get(id=childCategory)
         )
 
-        peed.save()
+        feed.save()
 
         for i in tags:
             if Tag.objects.filter(name=i).exists():
                 tag = Tag.objects.get(name=i)
-                peed.tag.add(tag)
+                feed.tag.add(tag)
             else:
                 tag = Tag.objects.create(name=i)
                 tag.save()
-                peed.tag.add(tag)
+                feed.tag.add(tag)
 
-        return PeedMutation(peed=peed)
+        return FeedMutation(feed=feed)
 
 
 class CategoryType(DjangoObjectType):
@@ -60,7 +60,7 @@ class ChildCategoryType(DjangoObjectType):
 
 
 class Query(graphene.AbstractType):
-    all_peed = graphene.List(PeedType)
+    all_feed = graphene.List(FeedType)
 
     all_category = graphene.List(CategoryType)
 
@@ -68,16 +68,16 @@ class Query(graphene.AbstractType):
 
     all_childCategory = graphene.List(ChildCategoryType)
 
-    peed = graphene.Field(PeedType, id=graphene.Int())
+    feed = graphene.Field(FeedType, id=graphene.Int())
 
-    def resolve_all_peed(self, context, **kwargs):
-        return Peed.objects.all()
+    def resolve_all_feed(self, context, **kwargs):
+        return Feed.objects.all()
 
-    def resolve_peed(self, info, **kwargs):
+    def resolve_feed(self, info, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
-            return Peed.objects.get(pk=id)
+            return Feed.objects.get(pk=id)
 
         return None
 
@@ -92,4 +92,4 @@ class Query(graphene.AbstractType):
 
 
 class Mutation(graphene.ObjectType):
-    create_peed = PeedMutation.Field()
+    create_feed = FeedMutation.Field()

@@ -1,5 +1,5 @@
-from peed.schema import Query as PeedQuery
-from peed.schema import Mutation as PeedMutation
+from feed.schema import Query as PeedQuery
+from feed.schema import Mutation as PeedMutation
 import graphene
 import graphql_jwt
 

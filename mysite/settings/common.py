@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     'ckeditor',
-    'peed',
+    'feed',
 ]
 
 

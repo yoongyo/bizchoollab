@@ -24,7 +24,7 @@ class Tag(models.Model):
         return self.name
 
 
-class Peed(models.Model):
+class Feed(models.Model):
     title = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     childCategory = models.ForeignKey(ChildCategory, on_delete=models.CASCADE)
