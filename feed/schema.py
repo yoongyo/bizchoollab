@@ -64,20 +64,24 @@ class Query(graphene.AbstractType):
 
     all_category = graphene.List(CategoryType)
 
-    all_tag = graphene.List(TagType)
+    all_tag = graphene.List(TagType, term=graphene.String())
 
     all_childCategory = graphene.List(ChildCategoryType)
 
-    feed = graphene.Field(FeedType, id=graphene.Int())
+    feed = graphene.Field(FeedType, id=graphene.Int(), term=graphene.String())
 
     def resolve_all_feed(self, context, **kwargs):
         return Feed.objects.all()
 
     def resolve_feed(self, info, **kwargs):
         id = kwargs.get('id')
+        term = kwargs.get('term')
 
         if id is not None:
             return Feed.objects.get(pk=id)
+
+        if term is not None:
+            return Feed.objects.filter(title__contains=term)
 
         return None
 
@@ -87,8 +91,17 @@ class Query(graphene.AbstractType):
     def resolve_all_tag(self, context, **kwargs):
         return Tag.objects.all()
 
+    def resolve_tag(self, info, **kwargs):
+        term = kwargs.get('term')
+        
+        if term is not None:
+            return Feed.objects.filter(title__contains=term)
+
+        return None
+
     def resolve_all_childCategory(self, context, **kwargs):
         return ChildCategory.objects.all()
+
 
 
 class Mutation(graphene.ObjectType):
