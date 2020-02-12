@@ -60,46 +60,40 @@ class ChildCategoryType(DjangoObjectType):
 
 
 class Query(graphene.AbstractType):
-    all_feed = graphene.List(FeedType)
+    all_feed = graphene.List(FeedType, term=graphene.String())
 
     all_category = graphene.List(CategoryType)
 
-    all_tag = graphene.List(TagType)
+    all_tag = graphene.List(TagType, term=graphene.String())
 
     all_childCategory = graphene.List(ChildCategoryType)
 
-    feed = graphene.Field(FeedType, id=graphene.Int(), term=graphene.String())
-
-    tag = graphene.Field(TagType, term=graphene.String())
+    feed = graphene.Field(FeedType, id=graphene.Int())
 
     def resolve_all_feed(self, context, **kwargs):
+        term = kwargs.get('term')
+        if term is not None:
+            return Feed.objects.filter(title__icontains=term)
+
         return Feed.objects.all()
 
     def resolve_feed(self, info, **kwargs):
         id = kwargs.get('id')
-        term = kwargs.get('term')
 
         if id is not None:
             return Feed.objects.get(pk=id)
-
-        if term is not None:
-            return Feed.objects.filter(title__contains=term)
-
         return None
 
     def resolve_all_portfolioCategory(self, context, **kwargs):
         return Category.objects.all()
 
     def resolve_all_tag(self, context, **kwargs):
-        return Tag.objects.all()
-
-    def resolve_tag(self, info, **kwargs):
         term = kwargs.get('term')
 
         if term is not None:
-            return Tag.objects.filter(name__contains=term)
+            return Tag.objects.filter(name__icontains=term)
 
-        return None
+        return Tag.objects.all()
 
     def resolve_all_childCategory(self, context, **kwargs):
         return ChildCategory.objects.all()
