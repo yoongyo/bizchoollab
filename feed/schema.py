@@ -97,7 +97,7 @@ class Query(graphene.AbstractType):
         term = kwargs.get('term')
 
         if term is not None:
-            return Tag.objects.filter(title__contains=term)
+            return Tag.objects.filter(name__contains=term)
 
         return None
 
