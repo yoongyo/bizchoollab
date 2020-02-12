@@ -64,11 +64,13 @@ class Query(graphene.AbstractType):
 
     all_category = graphene.List(CategoryType)
 
-    all_tag = graphene.List(TagType, term=graphene.String())
+    all_tag = graphene.List(TagType)
 
     all_childCategory = graphene.List(ChildCategoryType)
 
     feed = graphene.Field(FeedType, id=graphene.Int(), term=graphene.String())
+
+    tag = graphene.Field(TagType, term=graphene.String())
 
     def resolve_all_feed(self, context, **kwargs):
         return Feed.objects.all()
@@ -93,7 +95,7 @@ class Query(graphene.AbstractType):
 
     def resolve_tag(self, info, **kwargs):
         term = kwargs.get('term')
-        
+
         if term is not None:
             return Feed.objects.filter(title__contains=term)
 
