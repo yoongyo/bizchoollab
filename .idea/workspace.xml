@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db5cfd8-b114-428c-82fa-c5327324694a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/feed/schema.py" afterDir="false" />
-    </list>
+    <list default="true" id="4db5cfd8-b114-428c-82fa-c5327324694a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/feed/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+            <state relative-caret-position="219">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -187,7 +184,7 @@
     <option name="x" value="213" />
     <option name="y" value="23" />
     <option name="width" value="1117" />
-    <option name="height" value="801" />
+    <option name="height" value="806" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -244,7 +241,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="213" y="23" width="1117" height="801" extended-state="0" />
+    <frame x="213" y="23" width="1117" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -404,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/feed/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+        <state relative-caret-position="219">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
