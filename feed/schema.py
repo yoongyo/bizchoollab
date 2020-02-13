@@ -84,7 +84,7 @@ class Query(graphene.AbstractType):
             return Feed.objects.get(pk=id)
         return None
 
-    def resolve_all_portfolioCategory(self, context, **kwargs):
+    def resolve_all_category(self, context, **kwargs):
         return Category.objects.all()
 
     def resolve_all_tag(self, context, **kwargs):
