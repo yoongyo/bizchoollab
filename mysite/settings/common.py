@@ -118,8 +118,8 @@ CKEDITOR_CONFIGS = {
             {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image', 'Youtube']},
             '/',
         ],
-        'toolbar': 'YourCustomToolbarConfig',
         'extraPlugins': ','.join(['youtube']),
+        'toolbar': 'YourCustomToolbarConfig',
         'tabSpaces': 4,
     },
 }

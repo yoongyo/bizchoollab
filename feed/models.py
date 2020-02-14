@@ -32,10 +32,11 @@ class Feed(models.Model):
     content = RichTextUploadingField(blank=True,
                                      null=True,
                                      external_plugin_resources=[(
-                                        'youtube',
-                                        '/static/base/vendor/ckeditor_plugins/youtube/youtube/',
-                                        'plugin.js'
+                                         'youtube',
+                                         '/static/base/vendor/ckeditor_plugins/youtube/youtube/',
+                                         'plugin.js',
                                      )])
+
     created_at = models.DateField(auto_now_add=True)
     tag = models.ManyToManyField(Tag, related_name="tag", blank=True)
 
