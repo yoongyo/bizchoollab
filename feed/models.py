@@ -31,7 +31,7 @@ class Feed(models.Model):
     thumbnail = models.ImageField(blank=True, null=True)
     content = RichTextUploadingField(blank=True,
                                      null=True,
-                                     external_plugin_resource=[(
+                                     external_plugin_resources=[(
                                         'youtube',
                                         '/static/base/vendor/ckeditor_plugins/youtube/youtube/',
                                         'plugin.js'
