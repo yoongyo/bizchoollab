@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     'ckeditor',
+    'ckeditor_uploader',
     'feed',
 ]
 
@@ -96,6 +97,32 @@ USE_TZ = True
 # wysiwyg 에디터
 CKEDITOR_UPLOAD_PATH = "uploads/"
 AWS_QUERYSTRING_AUTH = False
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 200,
+        'width': '100%',
+        'skin': 'moono',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_YourCustomToolbarConfig': [
+            '/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
+
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image']},
+            {'name': 'youtube', 'items': ['Youtube']},
+            '/',
+        ],
+        'toolbar': 'YourCustomToolbarConfig',
+        'tabSpaces': 4,
+    },
+}
 
 
 # cors 문제 해결
