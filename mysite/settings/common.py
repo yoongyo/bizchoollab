@@ -100,8 +100,8 @@ AWS_QUERYSTRING_AUTH = False
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'height': 200,
-        'width': '100%',
+        'height': 1000,
+        'width': 606,
         'skin': 'moono',
         'toolbar_Basic': [
             ['Source', '-', 'Bold', 'Italic']
