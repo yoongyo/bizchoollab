@@ -115,11 +115,11 @@ CKEDITOR_CONFIGS = {
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
 
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
-            {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image']},
-            {'name': 'youtube', 'items': ['Youtube']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image', 'Youtube']},
             '/',
         ],
         'toolbar': 'YourCustomToolbarConfig',
+        'extraPlugins': ','.join(['youtube']),
         'tabSpaces': 4,
     },
 }

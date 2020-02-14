@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Category(models.Model):
@@ -29,7 +29,14 @@ class Feed(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     childCategory = models.ForeignKey(ChildCategory, on_delete=models.CASCADE)
     thumbnail = models.ImageField(blank=True, null=True)
-    content = RichTextField()
+    content = RichTextUploadingField(blank=True,
+                                     null=True,
+                                     external_plugin_resource=[(
+                                        'youtube',
+                                        '/static/base/vendor/ckeditor_plugins/youtube/youtube/',
+                                        'plugin.js'
+                                     )]
+                                     )
     created_at = models.DateField(auto_now_add=True)
     tag = models.ManyToManyField(Tag, related_name="tag", blank=True)
 
