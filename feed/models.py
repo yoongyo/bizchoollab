@@ -33,7 +33,7 @@ class Feed(models.Model):
                                      null=True,
                                      external_plugin_resources=[(
                                         'youtube',
-                                        '../static/base/vendor/ckeditor_plugins/youtube/youtube/',
+                                        '/static/base/vendor/ckeditor_plugins/youtube/youtube/',
                                         'plugin.js'
                                      )])
     created_at = models.DateField(auto_now_add=True)
