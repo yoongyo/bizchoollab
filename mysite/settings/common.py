@@ -97,7 +97,6 @@ USE_TZ = True
 # wysiwyg 에디터
 CKEDITOR_UPLOAD_PATH = "uploads/"
 AWS_QUERYSTRING_AUTH = False
-
 CKEDITOR_CONFIGS = {
     'default': {
         'height': 1000,
@@ -118,7 +117,7 @@ CKEDITOR_CONFIGS = {
             {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image', 'Youtube']},
             '/',
         ],
-        'extraPlugins': ','.join(['youtube']),
+        # 'extraPlugins': ','.join(['youtube']),
         'toolbar': 'YourCustomToolbarConfig',
         'tabSpaces': 4,
     },
