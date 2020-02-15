@@ -114,7 +114,8 @@ CKEDITOR_CONFIGS = {
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
 
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
-            {'name': 'colors', 'items': ['TextColor', 'BGColor', 'Image', 'Youtube']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'upload', 'items': ['Image', 'Youtube']},
             '/',
         ],
         'extraPlugins': 'youtube',
