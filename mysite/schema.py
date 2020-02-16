@@ -5,11 +5,11 @@ import graphene
 import graphql_jwt
 
 
-class Query(PeedQuery, graphene.ObjectType):
+class Query(PeedQuery, UserQuery, graphene.ObjectType):
     pass
 
 
-class Mutation(PeedMutation, UserQuery, graphene.ObjectType,):
+class Mutation(PeedMutation, graphene.ObjectType):
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()
