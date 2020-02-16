@@ -27,7 +27,7 @@ class Tag(models.Model):
 
 class Feed(models.Model):
     title = models.CharField(max_length=100)
-    admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     childCategory = models.ForeignKey(ChildCategory, on_delete=models.CASCADE)
     thumbnail = models.ImageField(blank=True, null=True)
