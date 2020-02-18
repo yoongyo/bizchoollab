@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db5cfd8-b114-428c-82fa-c5327324694a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/schema.py" afterDir="false" />
-    </list>
+    <list default="true" id="4db5cfd8-b114-428c-82fa-c5327324694a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+            <state relative-caret-position="418">
+              <caret line="48" column="29" selection-start-line="48" selection-end-line="49" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <marker date="1582010788991" expanded="true" signature="303:346" ph="..." />
@@ -443,8 +440,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        <state relative-caret-position="418">
+          <caret line="48" column="29" selection-start-line="48" selection-end-line="49" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
             <marker date="1582010788991" expanded="true" signature="303:346" ph="..." />

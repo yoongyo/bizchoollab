@@ -46,7 +46,7 @@ class LoginUser(graphene.Mutation):
     profile = graphene.Field(ProfileType)
 
     class Arguments:
-        username = graphene.String()
+        username = graphene.String(required=True)
 
     def mutate(self, username):
         profile = Profile.objects.get(user__username=username)
