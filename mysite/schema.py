@@ -2,7 +2,6 @@ from feed.schema import Query as PeedQuery
 from feed.schema import Mutation as PeedMutation
 from accounts.schema import Query as UserQuery
 from accounts.schema import Mutation as UserMutation
-
 import graphene
 import graphql_jwt
 

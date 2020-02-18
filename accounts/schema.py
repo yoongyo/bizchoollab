@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from .models import Profile
 import graphene
 from graphene_django import DjangoObjectType
 
@@ -8,15 +10,22 @@ class UserType(DjangoObjectType):
         model = get_user_model()
 
 
+class ProfileType(DjangoObjectType):
+    class Meta:
+        model = Profile
+
+
 class CreateUser(graphene.Mutation):
     user = graphene.Field(UserType)
+    profile = graphene.Field(ProfileType)
 
     class Arguments:
         username = graphene.String(required=True)
         password = graphene.String(required=True)
         email = graphene.String(required=False)
+        name = graphene.String(required=False)
 
-    def mutate(self, info, username, password, email):
+    def mutate(self, info, username, password, email, name):
         user = get_user_model()(
             username=username,
             email=email,
@@ -24,7 +33,13 @@ class CreateUser(graphene.Mutation):
         user.set_password(password)
         user.save()
 
-        return CreateUser(user=user)
+        profile = Profile.objects.create(
+            user=User.objects.get(username=user),
+            name=name
+        )
+        profile.save()
+
+        return CreateUser(user=user, profile=profile)
 
 
 class Mutation(graphene.ObjectType):
