@@ -47,26 +47,12 @@ class Mutation(graphene.ObjectType):
 
 
 class Query(graphene.ObjectType):
-    users = graphene.List(UserType,
-                          username=graphene.String()
-                          )
+    profile = graphene.Field(ProfileType, username=graphene.String())
 
-    user = graphene.Field(UserType,
-                          username=graphene.String()
-                          )
-
-    def resolve_user(self, info, **kwargs):
+    def resolve_profile(self, info, **kwargs):
         username = kwargs.get("username")
 
         if username is not None:
-            return get_user_model().objects.get(username=username)
+            return Profile.objects.get(user__username=username)
 
         return None
-
-    def resolve_users(self, info, **kwargs):
-        username = kwargs.get("username")
-
-        if username is not None:
-            get_user_model().objectsa.filter(username=username)
-
-        return get_user_model().objects.all()
