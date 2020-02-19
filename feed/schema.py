@@ -60,7 +60,7 @@ class ChildCategoryType(DjangoObjectType):
 
 
 class Query(graphene.AbstractType):
-    all_feed = graphene.List(FeedType, term=graphene.String())
+    all_feed = graphene.List(FeedType, term=graphene.String(), username=graphene.String())
 
     all_category = graphene.List(CategoryType)
 
@@ -72,8 +72,13 @@ class Query(graphene.AbstractType):
 
     def resolve_all_feed(self, context, **kwargs):
         term = kwargs.get('term')
+        username = kwargs.get('username')
+
         if term is not None:
             return Feed.objects.filter(title__icontains=term)
+
+        if username is not None:
+            return Feed.objects.filter(admin__username=username)
 
         return Feed.objects.all()
 
